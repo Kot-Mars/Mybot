@@ -1,12 +1,14 @@
 import telebot
 import pyowm
 import random
+import os
 from telebot import types
 global a
 
-
-bot = telebot.TeleBot(TOKEN)  #ТОКИН БОТА БЕРИТ С config.py
-owm = pyowm.OWM(TOKPOG, language='ru')#Токин погоды
+token = os.environ.get('TOKEN')
+tokenpog =os.environ.get('TOKPOG')
+bot = telebot.TeleBot(token)  #ТОКИН БОТА БЕРИТ С config.py
+owm = pyowm.OWM(tokenpog, language='ru')#Токин погоды
 
 @bot.message_handler(commands=['start']) #команда /start
 def welcome(message): #Функция приветствия
